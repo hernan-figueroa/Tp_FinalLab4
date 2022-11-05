@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+.Center{
+	width:25%;
+	margin:0% auto;
+	margin-top: 5%
+	}
+.Form{
+	background:white;
+	border:1px solid black;
+	padding:1rem; 
+	border-radius: 0.5rem;
+	margin: 10% 0 0 0;
+}
+
+header{
+	
+	background:#5DADE2;
+	background-size:cover;
+	height:40%;
+	width: 100%;
+ 
+ 
+}
