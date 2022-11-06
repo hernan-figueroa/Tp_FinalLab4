@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+<%@page import="java.util.ArrayList"%>
+ <%@page import="entidades.Usuario"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,14 +37,14 @@
 <body style="background:#EBF5FB">
   <div class="Center" >
 
-      <form  class="Form"  >
+      <form action="servletLogin" method="get" class="Form">
         
          <h1 class="form-text text-muted" style="text-align:center" >INICIAR SESION</h1>
         
 
         <div class="row">
 		<div class="col-12">
-		<input  type="text" class="form-control" id="txtDNI" placeholder="Numero de documento" style="margin: 50px 0 0 0">
+		<input  type="text" class="form-control" name="txtDNI" placeholder="Numero de documento" style="margin: 50px 0 0 0">
 		</div>
 		</div>
 		
@@ -51,18 +52,23 @@
 		
         <div class="row">
 		<div class="col-12">
-		<input  type="text" class="form-control" id="txtUsuario" placeholder="Nombre de Usuario" style="margin: 50px 0 0 0">
+		<input  type="text" class="form-control" name="txtUsuario" placeholder="Nombre de Usuario" style="margin: 50px 0 0 0">
 		</div>
 		</div>
         
         
         <div class="row">
 		<div class="col-12">
-		<input type="password" class="form-control" id="txtClave" placeholder="Clave" style="margin: 50px 0 50px 0">
+		<input type="password" class="form-control" name="txtClave" placeholder="Clave" style="margin: 50px 0 10px 0">
 		</div>
 		</div>
         
-        
+        <div class="row">
+        <div class="col-12">
+        <label id="lblMensaje" type="hidden" runat="server" style="color:red">Usuario Incorrecto</label>
+        </div>
+        </div>
+          
         <div class="row">
 		<div class="col-12">
 		<a class="Campos" >Olvide mi contraseña o usuario</a>
@@ -73,7 +79,7 @@
         <div class="row">
 		<div class="col-12">
 		<div style="text-align:center">
-		<input class="btn btn-primary" type="button" id="btnIngresar" value="Ingresar" style="margin: 50px 0 30px 0">
+		<input  type="submit" class="btn btn-primary" name="btnIngresar" value="Ingresar" style="margin: 50px 0 30px 0">
 		</div>
 		</div>
 		</div>  
@@ -82,4 +88,20 @@
     </div>
   
 </body>
+
+<% 
+	
+	String Mensaje = "";
+	if(request.getAttribute("Mensaje")!=null)
+	{
+		Mensaje = request.getAttribute("Mensaje").toString();
+		System.out.println(Mensaje);
+		if(Mensaje=="OK") {
+			session.setAttribute("NombreUsuario",request.getParameter("txtUsuario"));
+			
+		}
+	}
+		%>
+
+
 </html>

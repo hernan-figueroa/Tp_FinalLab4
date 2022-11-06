@@ -4,12 +4,12 @@ public class Usuario {
 	
 	public String usuario;
 	public String contrasenia;
-	public TipoUsuario tipoUsuario;
+	public int tipoUsuario;
 	
 	public Usuario() {
 	}
 
-	public Usuario(String usuario, String contrasenia, TipoUsuario tipoUsuario) {
+	public Usuario(String usuario, String contrasenia, int tipoUsuario) {
 		this.usuario = usuario;
 		this.contrasenia = contrasenia;
 		this.tipoUsuario = tipoUsuario;
@@ -31,11 +31,11 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 	}
 
-	public TipoUsuario getTipoUsuario() {
+	public int getTipoUsuario() {
 		return tipoUsuario;
 	}
 
-	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 
