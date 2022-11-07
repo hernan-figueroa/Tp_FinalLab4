@@ -84,9 +84,9 @@ public class Dao {
     }
     
 
-    public String VerificarLogin(String DNI,String usuario,String Clave)
+    public ArrayList<String> VerificarLogin(String DNI,String usuario,String Clave)
 	{
-		
+    	ArrayList<String>Resultado=new ArrayList<String>();
 		Connection cn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -97,6 +97,7 @@ public class Dao {
 		}
 		
 		try{
+			
 			cn = DriverManager.getConnection(host+dbName, user,pass);
 			
 			Statement st = cn.createStatement();
@@ -109,19 +110,19 @@ public class Dao {
     		resultado=ps.executeQuery();
     		System.out.println("Antes de entrar a resultado");
     		if(resultado.next()) {
-    			String Adv=resultado.getString("Validacion");
-    			System.out.println(Adv);
-    			return Adv;
+    			Resultado.add(resultado.getString("Validacion"));
+    			Resultado.add(resultado.getString("TipoUsuario"));
     			
     		}
+    		
     		ps.close();
-    		System.out.println("TODO OK");
+    		return Resultado;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-		
+			
 		}
-		return "No se pudo ingresar";
+		return Resultado;
 	}
     
     

@@ -19,12 +19,12 @@
 
 
 <header class="row">
-<i class="bi bi-bank" style="font-size: 6em;margin: 10px 0 0 10%"> </i>
-<h1 style="margin: 3% 0 0 0">ONLY BANK</h1>
-<a class="Campos" style="color:black;margin: 4% 0 0 50%"><h5>Registrar Usuario</h5></a>
-<i class="bi bi-person-plus-fill" style="font-size:2em; margin: 4% 0 0 0.5%"></i>
-<a class="Campos" style="color:black;margin: 4% 0 0 1%"><h5>Salir</h5></a>
-<i class="bi bi-box-arrow-right"style="font-size:2em; margin: 4% 0 0 0.5%"/></i>
+<a href="Login.jsp" class="bi bi-bank" style="font-size: 6em;margin: 0.1% 0 0 10%; color:black" > </a>
+<a href="Login.jsp" type=button style="margin: 3% 0 0 0; color:black"><h1>ONLY BANK</h1></a>
+<a href="servletLogin?btnRegistrarUsuario=RegistrarUsuario" method="get" class="Campos" style="margin: 4% 0 0 50%;color:black;"><h5>Registrar Usuario</h5></a>
+<a href="servletLogin?btnRegistrarUsuario=RegistrarUsuario" class="bi bi-person-plus-fill" style="font-size:2em; margin: 4% 0 0 0.5%; color:black"></a>
+<a href="servletLogin?btnSalir=CerrarSesion" class="Campos" style=";margin: 4% 0 0 1%;color:black"><h5>Salir</h5></a>
+<a href="servletLogin?btnSalir=CerrarSesion" class="bi bi-box-arrow-right"style="font-size:2em; margin: 4% 0 0 0.5%;color:black"/></a>
 </header>
 </head>
 
@@ -44,7 +44,7 @@
 
         <div class="row">
 		<div class="col-12">
-		<input  type="text" class="form-control" name="txtDNI" placeholder="Numero de documento" style="margin: 50px 0 0 0">
+		<input  type="text" class="form-control" name="txtDNI" placeholder="Numero de documento" style="margin: 50px 0 0 0" required>
 		</div>
 		</div>
 		
@@ -52,26 +52,27 @@
 		
         <div class="row">
 		<div class="col-12">
-		<input  type="text" class="form-control" name="txtUsuario" placeholder="Nombre de Usuario" style="margin: 50px 0 0 0">
+		<input  type="text" class="form-control" name="txtUsuario" placeholder="Nombre de Usuario" style="margin: 50px 0 0 0" required>
 		</div>
 		</div>
         
         
         <div class="row">
 		<div class="col-12">
-		<input type="password" class="form-control" name="txtClave" placeholder="Clave" style="margin: 50px 0 10px 0">
+		<input type="password" class="form-control" name="txtClave" placeholder="Clave" style="margin: 50px 0 10px 0" required>
 		</div>
 		</div>
         
         <div class="row">
         <div class="col-12">
-        <label id="lblMensaje" type="hidden" runat="server" style="color:red">Usuario Incorrecto</label>
+        <%!String LabelMensaje=""; %>
+        <label name="lblMensaje" Text="Esto es un texto" value="Usuario Incorrecto" runat="server" style="color:red"><%=LabelMensaje %></label>
         </div>
         </div>
           
         <div class="row">
 		<div class="col-12">
-		<a class="Campos" >Olvide mi contraseña o usuario</a>
+		<a href="RecuperarClave" class="Campos" >Olvide mi contraseña o usuario</a>
 		</div>
 		</div>
         
@@ -90,16 +91,23 @@
 </body>
 
 <% 
-	
 	String Mensaje = "";
 	if(request.getAttribute("Mensaje")!=null)
 	{
 		Mensaje = request.getAttribute("Mensaje").toString();
-		System.out.println(Mensaje);
-		if(Mensaje=="OK") {
-			session.setAttribute("NombreUsuario",request.getParameter("txtUsuario"));
-			
+		if(Mensaje.equals("OK")) {
+			LabelMensaje="";
+			response.sendRedirect("Login.jsp");
 		}
+		else 
+			{
+			LabelMensaje=request.getAttribute("Mensaje").toString();
+			response.sendRedirect("Login.jsp");
+			}
+	}
+	if(session.getAttribute("NombreUsuario")!=null)
+	{
+		
 	}
 		%>
 

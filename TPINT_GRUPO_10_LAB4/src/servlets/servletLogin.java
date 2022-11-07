@@ -39,16 +39,46 @@ public class servletLogin extends HttpServlet {
 			String DNI=request.getParameter("txtDNI");
 			String NombreUsuario=request.getParameter("txtUsuario");
 			String Clave=request.getParameter("txtClave");
-			String Mensaje= dao.VerificarLogin(DNI,NombreUsuario,Clave);
-			request.setAttribute("Mensaje", Mensaje);
+			ArrayList<String> Mensaje= dao.VerificarLogin(DNI,NombreUsuario,Clave);
+			
+			
+			
+
+				if(Mensaje.get(0).equals("OK")) {
+					System.out.println("GUARDO SESSION");
+					request.getSession().setAttribute("NombreUsuario",request.getParameter("txtUsuario"));
+					
+					if(Integer.parseInt(Mensaje.get(1))==1)
+					{
+						System.out.println("ES ADMIN");
+						response.sendRedirect("InformeEstadistico.jsp");
+					}
+					else {
+						System.out.println("NO ES ADMIN");
+						response.sendRedirect("MenuPrincipalUsuario.jsp");
+					}
+				}
+				else {
+					request.setAttribute("Mensaje", Mensaje.get(0));
+					RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");   
+			        rd.forward(request, response);
+				}
+				
+		}
+		
+		
+		if(request.getParameter("btnSalir")!=null)
+		{ 
+			request.getSession().setAttribute("NombreUsuario",null);
 			RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");   
 	        rd.forward(request, response);
-	        
 		}
-
+		if(request.getParameter("btnRegistrarUsuario")!=null)
+		{ 
+			response.sendRedirect("RegistroUsuario.jsp");
+		}
 		
-	}
-
+		}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
