@@ -41,6 +41,7 @@
         
          <h1 class="form-text text-muted" style="text-align:center" >INICIAR SESION</h1>
         
+        
 
         <div class="row">
 		<div class="col-12">

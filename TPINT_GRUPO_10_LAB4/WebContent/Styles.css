@@ -1,5 +1,10 @@
 @charset "ISO-8859-1";
 
+*{
+	margin:0px;
+	padding:0px;
+}
+
 .Center{
 	width:25%;
 	margin:0% auto;

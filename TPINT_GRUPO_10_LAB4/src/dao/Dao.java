@@ -23,10 +23,7 @@ public class Dao {
     private final String DATABASE = "tp_final";
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     
-    private String host = "jdbc:mysql://localhost:3306/";
-	private String user = "root";
-	private String pass = "root";
-	private String dbName = "tp_final";
+
     
     protected void conectarBase(){
         
@@ -84,46 +81,7 @@ public class Dao {
     }
     
 
-    public ArrayList<String> VerificarLogin(String DNI,String usuario,String Clave)
-	{
-    	ArrayList<String>Resultado=new ArrayList<String>();
-		Connection cn = null;
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try{
-			
-			cn = DriverManager.getConnection(host+dbName, user,pass);
-			
-			Statement st = cn.createStatement();
-			StringBuilder sb=new StringBuilder();
-    		sb.append("{call Login(?,?,?)}");
-    		ps=cn.prepareCall(sb.toString());
-    		ps.setString(1,DNI);
-    		ps.setString(2,usuario);
-    		ps.setString(3, Clave);
-    		resultado=ps.executeQuery();
-    		System.out.println("Antes de entrar a resultado");
-    		if(resultado.next()) {
-    			Resultado.add(resultado.getString("Validacion"));
-    			Resultado.add(resultado.getString("TipoUsuario"));
-    			
-    		}
-    		
-    		ps.close();
-    		return Resultado;
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			
-		}
-		return Resultado;
-	}
+   
     
     
     
