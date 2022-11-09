@@ -15,22 +15,30 @@
 
 
 <header class="row">
-<i class="bi bi-bank" style="font-size: 6em;margin: 10px 0 0 10%"> </i>
-<h1 style="margin: 3% 0 0 0">ONLY BANK</h1>
-<a class="Campos" style="color:black;margin: 4% 0 0 50%"><h5>Registrar Usuario</h5></a>
-<i class="bi bi-person-plus-fill" style="font-size:2em; margin: 4% 0 0 0.5%"></i>
-<a class="Campos" style="color:black;margin: 4% 0 0 1%"><h5>Salir</h5></a>
-<i class="bi bi-box-arrow-right"style="font-size:2em; margin: 4% 0 0 0.5%"/></i>
+<a href="Login.jsp" class="bi bi-bank" style="font-size: 6em;margin: 0.1% 0 0 10%; color:black" > </a>
+<a href="Login.jsp" type=button style="margin: 3% 0 0 0; color:black"><h1>ONLY BANK</h1></a>
+
+<div class="col-8">
+<div class="row">
+<a href="servletLogin?btnRegistrarUsuario=RegistrarUsuario" method="get" class="Campos" style="margin: 7% 0 0 50%;color:black;"><h5>Registrar Usuario</h5></a>
+<a href="servletLogin?btnRegistrarUsuario=RegistrarUsuario" class="bi bi-person-plus-fill" style="font-size:2em; margin: 7% 0 0 0.5%; color:black"></a>
+<a href="servletLogin?btnSalir=CerrarSesion" class="Campos" style=";margin: 7% 0 0 1%;color:black"><h5>Informe</h5></a>
+<a href="" class="bi bi-graph-up" style="font-size:2em; margin: 7% 0 0 0.5%;color:black"/></a>
+<a href="servletLogin?btnSalir=CerrarSesion" class="Campos" style=";margin: 7% 0 0 1%;color:black"><h5>Salir</h5></a>
+<a href="servletLogin?btnSalir=CerrarSesion" class="bi bi-box-arrow-right"style="font-size:2em; margin: 7% 0 0 0.5%;color:black"/></a>
+</div>
+</div>
 </header>
 </head>
 
 
 
 <body style="background:#EBF5FB">
+<form action="servletModificarUsuario" method="post" >
 <div id="BuscarUsuario" style="">
 <label >Usuario a modificar:</label>
 <input  type="text" style="margin:10px 0 0 0; border-radius: 0.1rem;"> 
-<input class="btn btn-secondary" type="button" value="Aceptar" style="height:40px; margin:0 0 10px 0">
+<input class="btn btn-secondary" type="submit" name=btnListarUsuario value="Aceptar" style="height:40px; margin:0 0 10px 0">
 
 <div id="divFiltro" class="form-control" style="display:none;justify-content:space-between; width:70%;position:absolute; margin:0 0 15% 15%">
 <label>Nombre </label>
@@ -40,10 +48,10 @@
 <label>Usuario</label>
 </div>
 </div>
+</form>
 
 
-
-
+<form action="servletModificarUsuario" method="post">
 <div style=" width:70%; height:100%; margin-left:10px">
 <h1>EDITAR USUARIO</h1>
 <div class="row">
@@ -168,7 +176,7 @@
 <div class="row">
 		<div class="col-12">
 		<div style="text-align:center">
-		<input class="btn btn-success" type="button" id="btnIngresar" value="Modificar" style="margin: 50px 0 30px 0">
+		<input class="btn btn-success"  type="submit" id="btnIngresar" name="Modificar" value="Modificar" style="margin: 50px 0 30px 0">
 		</div>
 		</div>
 

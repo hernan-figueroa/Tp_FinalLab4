@@ -19,12 +19,8 @@
 
 
 <header class="row">
-<a href="Login.jsp" class="bi bi-bank" style="font-size: 6em;margin: 0.1% 0 0 10%; color:black" > </a>
-<a href="Login.jsp" type=button style="margin: 3% 0 0 0; color:black"><h1>ONLY BANK</h1></a>
-<a href="servletLogin?btnRegistrarUsuario=RegistrarUsuario" method="get" class="Campos" style="margin: 4% 0 0 50%;color:black;"><h5>Registrar Usuario</h5></a>
-<a href="servletLogin?btnRegistrarUsuario=RegistrarUsuario" class="bi bi-person-plus-fill" style="font-size:2em; margin: 4% 0 0 0.5%; color:black"></a>
-<a href="servletLogin?btnSalir=CerrarSesion" class="Campos" style=";margin: 4% 0 0 1%;color:black"><h5>Salir</h5></a>
-<a href="servletLogin?btnSalir=CerrarSesion" class="bi bi-box-arrow-right"style="font-size:2em; margin: 4% 0 0 0.5%;color:black"/></a>
+<a href="Login.jsp" class="bi bi-bank" style="font-size: 6em;margin: 0.3% 0 0 40%; color:black" > </a>
+<a href="Login.jsp" type=button style="margin: 1% 0 0 0; color:black"><h1 style="font-size: 400%">ONLY BANK</h1></a>
 </header>
 </head>
 
@@ -45,7 +41,7 @@
 
         <div class="row">
 		<div class="col-12">
-		<input  type="text" class="form-control" name="txtDNI" placeholder="Numero de documento" style="margin: 50px 0 0 0" required>
+		<input  type="number" class="form-control" name="txtDNI" placeholder="Numero de documento" style="margin: 50px 0 0 0" required>
 		</div>
 		</div>
 		

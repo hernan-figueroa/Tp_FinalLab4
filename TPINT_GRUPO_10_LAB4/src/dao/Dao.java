@@ -55,7 +55,7 @@ public class Dao {
         }
     }
     
-    protected int insertarModificarEliminar(String sql) {
+    public int insertarModificarEliminar(String sql) {
         int filas=0;
     	try {
             conectarBase();
