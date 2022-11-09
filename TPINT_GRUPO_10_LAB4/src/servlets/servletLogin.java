@@ -9,9 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import daoImpl.ClienteDaoImpl;
 import entidades.Cliente;
 import entidades.Usuario;
-import dao.Dao;
 /**
  * Servlet implementation class servletLogin
  */
@@ -35,7 +36,7 @@ public class servletLogin extends HttpServlet {
 		if(request.getParameter("btnIngresar")!=null)
 		{
 			
-			Dao dao = new Dao();
+			ClienteDaoImpl dao = new ClienteDaoImpl();
 			String DNI=request.getParameter("txtDNI");
 			String NombreUsuario=request.getParameter("txtUsuario");
 			String Clave=request.getParameter("txtClave");
