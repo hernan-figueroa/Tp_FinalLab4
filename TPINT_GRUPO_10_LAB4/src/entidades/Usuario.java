@@ -5,6 +5,7 @@ public class Usuario {
 	public String usuario;
 	public String contrasenia;
 	public int tipoUsuario;
+	public boolean estado;
 	
 	public Usuario() {
 	}
@@ -37,6 +38,15 @@ public class Usuario {
 
 	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
+	}
+	
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 
 	@Override

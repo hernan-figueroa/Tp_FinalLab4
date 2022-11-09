@@ -2,7 +2,7 @@ package entidades;
 
 import java.util.Date;
 
-public class Cliente {
+public class Cliente extends Usuario {
 	
 	public Long id;
 	public Long dni;
@@ -16,15 +16,16 @@ public class Cliente {
 	public Localidad localidad;
 	public Provincia provincia;
 	public String mail;
-	public Usuario usuario;
-	public Boolean estado;
+	
 	
 	public Cliente() {
+		super();
 	}
 
 	public Cliente(Long idCliente, Long dni, Long cuil, String nombre, String apellido, String sexo,
 			Nacionalidad nacionalidad, Date fechaNac, String direccion, Localidad localidad, Provincia provincia,
-			String mail, Usuario usuario, Boolean estado) {
+			String mail, String usuario, String contrasenia, int TipoUsuario) {
+		super(usuario, contrasenia, TipoUsuario);
 		this.id = idCliente;
 		this.dni = dni;
 		this.cuil = cuil;
@@ -37,9 +38,7 @@ public class Cliente {
 		this.localidad = localidad;
 		this.provincia = provincia;
 		this.mail = mail;
-		this.usuario = usuario;
-		this.estado = estado;
-	}
+			}
 
 	public Long getId() {
 		return id;
@@ -137,21 +136,7 @@ public class Cliente {
 		this.mail = mail;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
 
 	@Override
 	public String toString() {

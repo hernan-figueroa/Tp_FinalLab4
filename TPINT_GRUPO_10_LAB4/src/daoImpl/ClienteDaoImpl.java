@@ -60,8 +60,7 @@ public class ClienteDaoImpl extends Dao implements ClienteDao {
 					+ "values (" + cliente.getId() + "," + cliente.getCuil() + ",' " + cliente.nombre + "','"
 					+ cliente.getApellido() + "','" + cliente.getSexo() + "' ," + cliente.getNacionalidad().getId() + ","
 					+ cliente.getFechaNac() + ", '" + cliente.getDireccion() + "'," + cliente.getLocalidad().getId() + ","
-					+ cliente.getProvincia() + ",'" + cliente.getMail() + "','" + cliente.getUsuario().getUsuario() + "',"
-					+ cliente.getEstado() + "," + cliente.getDni() + ");";
+					+ cliente.getProvincia() + ",'" + cliente.getMail() + "','" + cliente.getDni() + ");";
 			
 			filas = insertarModificarEliminar(sql);
 		} catch (Exception e) {
@@ -111,7 +110,7 @@ public class ClienteDaoImpl extends Dao implements ClienteDao {
 	public boolean deleteCliente(Long id) {
 		int filas=0;
 		try {
-			String sql = "Update Cliente estado = 0 WHERE idCliente = " + id + ";";
+			String sql = "Update Cliente SET estado = 0 WHERE idCliente = " + id + ";";
 			insertarModificarEliminar(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
