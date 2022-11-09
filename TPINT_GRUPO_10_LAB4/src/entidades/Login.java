@@ -4,9 +4,9 @@ public class Login {
 	private Long DNI;
 	private String Usuario;
 	private String Clave;
-	private String Admin;
+	private Boolean Admin;
 	
-	public Login(Long dNI, String usuario, String clave, String admin) {
+	public Login(Long dNI, String usuario, String clave, Boolean admin) {
 		super();
 		DNI = dNI;
 		Usuario = usuario;
@@ -35,11 +35,18 @@ public class Login {
 	public void setClave(String clave) {
 		Clave = clave;
 	}
-	public String getAdmin() {
+	public Boolean getAdmin() {
 		return Admin;
 	}
-	public void setAdmin(String admin) {
+	public void setAdmin(Boolean admin) {
 		Admin = admin;
 	}
+	
+	@Override
+	public String toString() {
+		return "Login [DNI=" + DNI + ", Usuario=" + Usuario + ", Clave=" + Clave + ", Admin=" + Admin + "]";
+	}
 
+	
 }
+

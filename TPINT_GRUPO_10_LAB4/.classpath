@@ -14,7 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/joaqu/Downloads/mysql-connector-java-5.1.47.jar">
+	<classpathentry kind="lib" path="C:/Users/joaqu/OneDrive/Escritorio/TPI_VERSIONES/Tp_FinalLab4/TPINT_GRUPO_10_LAB4/mysql-connector-java-5.1.47-bin.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

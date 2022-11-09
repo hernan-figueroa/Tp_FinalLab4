@@ -2,17 +2,17 @@ package negocioImpl;
 
 import java.util.ArrayList;
 
-import dao.LoginDao;
+import daoImpl.ClienteDaoImpl;
 import entidades.Login;
 import negocio.LoginNegocio;
 
 public class LoginNegocioImpl implements LoginNegocio {
-	LoginDao logDao= new LoginDao();
+	ClienteDaoImpl logDao= new ClienteDaoImpl();
 	
 	@Override
-	public ArrayList<Login> VerificarLogin(Long DNI,String Usuario,String Clave){
+	public Login VerificarLogin(Long DNI,String Usuario,String Clave){
 		System.out.print("LLEGO A VERIFICAR LOGIN");
-		ArrayList<Login>UsuarioIngresado= new ArrayList<Login>();
+		Login UsuarioIngresado= new Login();
 		UsuarioIngresado=logDao.VerificarLogin(DNI,Usuario,Clave);
 		return UsuarioIngresado;
 	}
