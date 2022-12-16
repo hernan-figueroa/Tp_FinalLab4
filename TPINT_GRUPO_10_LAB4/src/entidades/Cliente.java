@@ -2,11 +2,11 @@ package entidades;
 
 import java.util.Date;
 
-public class Cliente {
+public class Cliente extends Usuario {
 	
 	public Long id;
 	public Long dni;
-	public Long cuit;
+	public Long cuil;
 	public String nombre;
 	public String apellido;
 	public String sexo;
@@ -15,19 +15,19 @@ public class Cliente {
 	public String direccion;
 	public Localidad localidad;
 	public Provincia provincia;
-	public String mail;
-	public Usuario usuario;
-	public Boolean estado;
+	
 	
 	public Cliente() {
+		super();
 	}
 
-	public Cliente(Long idCliente, Long dni, Long cuit, String nombre, String apellido, String sexo,
+	public Cliente(Long idCliente, Long dni, Long cuil, String nombre, String apellido, String sexo,
 			Nacionalidad nacionalidad, Date fechaNac, String direccion, Localidad localidad, Provincia provincia,
-			String mail, Usuario usuario, Boolean estado) {
+			String mail, String usuario, String contrasenia, TipoUsuario TipoUsuario) {
+		super(usuario, contrasenia, TipoUsuario,mail);
 		this.id = idCliente;
 		this.dni = dni;
-		this.cuit = cuit;
+		this.cuil = cuil;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.sexo = sexo;
@@ -37,9 +37,7 @@ public class Cliente {
 		this.localidad = localidad;
 		this.provincia = provincia;
 		this.mail = mail;
-		this.usuario = usuario;
-		this.estado = estado;
-	}
+			}
 
 	public Long getId() {
 		return id;
@@ -57,12 +55,12 @@ public class Cliente {
 		this.dni = dni;
 	}
 
-	public Long getCuit() {
-		return cuit;
+	public Long getCuil() {
+		return cuil;
 	}
 
-	public void setCuit(Long cuit) {
-		this.cuit = cuit;
+	public void setCuil(Long cuil) {
+		this.cuil = cuil;
 	}
 
 	public String getNombre() {
@@ -129,38 +127,18 @@ public class Cliente {
 		this.provincia = provincia;
 	}
 
-	public String getMail() {
-		return mail;
-	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", dni=" + dni + ", cuit=" + cuit + ", nombre=" + nombre
-				+ ", apellido=" + apellido + ", sexo=" + sexo + ", nacionalidad=" + nacionalidad + ", fechaNac="
-				+ fechaNac + ", direccion=" + direccion + ", localidad=" + localidad + ", provincia=" + provincia
-				+ ", mail=" + mail + ", usuario=" + usuario + ", estado=" + estado + "]";
+		return "Cliente [id=" + id + ", dni=" + dni + ", cuil=" + cuil + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", sexo=" + sexo + ", nacionalidad=" + nacionalidad + ", fechaNac=" + fechaNac + ", direccion="
+				+ direccion + ", localidad=" + localidad + ", provincia=" + provincia + ", mail=" + mail + ", usuario="
+				+ usuario + ", contrasenia=" + contrasenia + ", tipoUsuario=" + tipoUsuario + ", estado=" + estado
+				+ "]";
 	}
-	
-	
+
+
+
 
 }

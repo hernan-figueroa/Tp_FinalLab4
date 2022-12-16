@@ -1,0 +1,55 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Login`(IN OP varchar(100), IN UsParam varchar(100),IN claveParam varchar(100),IN mailParam varchar(100))
+BEGIN
+if(OP='Login') then
+
+if exists(SELECT * FROM admin WHERE (Usuario=UsParam AND Contrasenia=claveParam AND Estado=1)) then
+select distinct Usuario as Usuario, idTipoUsuario as TipoUsuario, Contrasenia as Clave from admin where Usuario=UsParam;
+end if;
+
+if exists(SELECT * FROM cliente WHERE (usuario=UsParam AND Contrasenia=claveParam AND Estado=1)) then
+select distinct Usuario as Usuario, idTipoUsuario as TipoUsuario, Contrasenia as Clave from Cliente where Usuario=UsParam;
+end if;
+end if;
+
+if(OP='RecuperarUsuario') then
+if exists(SELECT * FROM cliente WHERE(Mail=mailParam))then
+select Mail as Mail, Usuario as Usuario, Contrasenia as Clave from tp_final.cliente WHERE Mail=mailParam;
+end if;
+
+if exists(SELECT * FROM admin WHERE(Mail=mailParam))then
+select Mail as Mail, Usuario as Usuario, Contrasenia as Clave from tp_final.admin WHERE Mail=mailParam;
+end if;
+end if;
+END
+
+
+-----
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Cliente`(IN OP varchar(50),IN IDUs int)
+BEGIN
+
+
+if(OP='ListarCliente') then
+if exists(Select * from cliente where idCliente=IDUs)then
+SELECT  a.*,b.idNacionalidad as idNacionalidad,b.Descripcion as DescripcionNac, c.idLocalidad AS idLocalidad, c.Descripcion AS DescripcionLoc,d.idProvincia AS idProvincia, d.Descripcion AS DescripcionProv FROM tp_final.cliente a inner join nacionalidad b on a.IDNacionalidad=b.idNacionalidad inner join localidad c on a.IDLocalidad=c.idLocalidad inner join provincia d on a.IDProvincia=d.idProvincia  WHERE idCliente=IDUs ;
+END if;
+END if;
+
+if(OP='ListarClientes')then
+SELECT a.*,b.idNacionalidad as idNacionalidad,b.Descripcion as DescripcionNac, c.idLocalidad AS idLocalidad, c.Descripcion AS DescripcionLoc,d.idProvincia AS idProvincia, d.Descripcion AS DescripcionProv FROM tp_final.cliente a inner join nacionalidad b on a.IDNacionalidad=b.idNacionalidad inner join localidad c on a.IDLocalidad=c.idLocalidad inner join provincia d on a.IDProvincia=d.idProvincia;
+END if;
+END
+
+
+----
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Transferencia`(IN OP varchar(50),IN CBUo bigint, IN CBUd bigint, IN monto double)
+BEGIN
+if(OP='Transferir') then
+update cuentaxcliente set Saldo=Saldo-monto where Cbu= CBUo;
+update cuentaxcliente set Saldo=Saldo+monto where Cbu= CBUd;
+end if;
+END

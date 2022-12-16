@@ -31,7 +31,7 @@ public class TipoUsuario {
 
 	@Override
 	public String toString() {
-		return "TipoUsuario [id=" + id + ", descripcion=" + descripcion + "]";
+		return id.toString();
 	}
 	
 }

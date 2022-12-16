@@ -2,19 +2,23 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import entidades.TipoCuenta;
 
 public class Dao {
 
 	protected Connection conexion = null;
     protected ResultSet resultado = null;
     protected Statement sentencia = null;
+    protected PreparedStatement ps= null;
     
     private final String USER = "root";
     private final String PASSWORD = "root";
     private final String DATABASE = "tp_final";
-    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private final String DRIVER = "com.mysql.jdbc.Driver";
     
     protected void conectarBase(){
         
@@ -45,7 +49,7 @@ public class Dao {
         }
     }
     
-    protected int insertarModificarEliminar(String sql) {
+    public int insertarModificarEliminar(String sql) {
         int filas=0;
     	try {
             conectarBase();
@@ -69,5 +73,16 @@ public class Dao {
         	e.printStackTrace();
         }
     }
+    
+    protected void consultarBasePS(){
+        try {
+        	resultado=ps.executeQuery();  
+        } catch (Exception e) {
+        	System.out.println("CONSULTARPS");
+        	e.printStackTrace();
+        	
+        }
+    }
+
 }
 

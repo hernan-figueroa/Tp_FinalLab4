@@ -31,7 +31,7 @@ public class Nacionalidad {
 
 	@Override
 	public String toString() {
-		return "Nacionalidad [id=" + id + ", descripcion=" + descripcion + "]";
+		return  id.toString();
 	}
 		
 }

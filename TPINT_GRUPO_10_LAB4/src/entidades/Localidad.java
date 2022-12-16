@@ -31,7 +31,7 @@ public class Localidad {
 
 	@Override
 	public String toString() {
-		return "Localidad [id=" + id + ", descripcion=" + descripcion + "]";
+		return id.toString();
 	}
 	
 	
