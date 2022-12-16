@@ -2,7 +2,7 @@ package entidades;
 
 import java.util.Date;
 
-public class Cliente {
+public class Cliente extends Usuario {
 	
 	public Long id;
 	public Long dni;
@@ -15,16 +15,16 @@ public class Cliente {
 	public String direccion;
 	public Localidad localidad;
 	public Provincia provincia;
-	public String mail;
-	public Usuario usuario;
-	public Boolean estado;
+	
 	
 	public Cliente() {
+		super();
 	}
 
 	public Cliente(Long idCliente, Long dni, Long cuil, String nombre, String apellido, String sexo,
 			Nacionalidad nacionalidad, Date fechaNac, String direccion, Localidad localidad, Provincia provincia,
-			String mail, Usuario usuario, Boolean estado) {
+			String mail, String usuario, String contrasenia, TipoUsuario TipoUsuario) {
+		super(usuario, contrasenia, TipoUsuario,mail);
 		this.id = idCliente;
 		this.dni = dni;
 		this.cuil = cuil;
@@ -37,9 +37,7 @@ public class Cliente {
 		this.localidad = localidad;
 		this.provincia = provincia;
 		this.mail = mail;
-		this.usuario = usuario;
-		this.estado = estado;
-	}
+			}
 
 	public Long getId() {
 		return id;
@@ -129,38 +127,18 @@ public class Cliente {
 		this.provincia = provincia;
 	}
 
-	public String getMail() {
-		return mail;
-	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", dni=" + dni + ", cuil=" + cuil + ", nombre=" + nombre
-				+ ", apellido=" + apellido + ", sexo=" + sexo + ", nacionalidad=" + nacionalidad + ", fechaNac="
-				+ fechaNac + ", direccion=" + direccion + ", localidad=" + localidad + ", provincia=" + provincia
-				+ ", mail=" + mail + ", usuario=" + usuario + ", estado=" + estado + "]";
+		return "Cliente [id=" + id + ", dni=" + dni + ", cuil=" + cuil + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", sexo=" + sexo + ", nacionalidad=" + nacionalidad + ", fechaNac=" + fechaNac + ", direccion="
+				+ direccion + ", localidad=" + localidad + ", provincia=" + provincia + ", mail=" + mail + ", usuario="
+				+ usuario + ", contrasenia=" + contrasenia + ", tipoUsuario=" + tipoUsuario + ", estado=" + estado
+				+ "]";
 	}
-	
-	
+
+
+
 
 }

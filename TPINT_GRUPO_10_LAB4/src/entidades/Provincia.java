@@ -31,7 +31,7 @@ public class Provincia {
 
 	@Override
 	public String toString() {
-		return "Provincia [id=" + id + ", descripcion=" + descripcion + "]";
+		return id.toString();
 	}
 	
 }

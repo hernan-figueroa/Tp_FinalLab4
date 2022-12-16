@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import entidades.TipoCuenta;
+
 public class Dao {
 
 	protected Connection conexion = null;
@@ -47,7 +49,7 @@ public class Dao {
         }
     }
     
-    protected int insertarModificarEliminar(String sql) {
+    public int insertarModificarEliminar(String sql) {
         int filas=0;
     	try {
             conectarBase();
@@ -76,8 +78,11 @@ public class Dao {
         try {
         	resultado=ps.executeQuery();  
         } catch (Exception e) {
+        	System.out.println("CONSULTARPS");
         	e.printStackTrace();
+        	
         }
     }
+
 }
 
